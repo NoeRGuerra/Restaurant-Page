@@ -1,5 +1,6 @@
 import { buildHome } from "./home"
 import { buildMenu } from "./menu";
+import { buildAboutPage } from "./about";
 
 buildHome();
 
@@ -16,4 +17,9 @@ homeButton.addEventListener('click', () => {
 menuButton.addEventListener('click', () => {
     mainContainer.replaceChildren();
     buildMenu();
+})
+
+aboutButton.addEventListener('click', () => {
+    mainContainer.replaceChildren();
+    buildAboutPage();
 })
