@@ -1,8 +1,9 @@
 class MenuItem {
-    constructor(name, price, image){
+    constructor(name, description, price, image){
         this._name = name;
+        this._description = description;
         this._price = price;
-        this._image = image;
+        // this._image = image;
     }
 
     get name(){
@@ -14,6 +15,18 @@ class MenuItem {
             this._name = newName;
         } else {
             throw new Error('Name must be a string with a maximum of 30 characters.');
+        }
+    }
+
+    get description(){
+        return this._description;
+    }
+
+    set description(newDescription){
+        if (typeof newDescription === "string" && newDescription.length < 100){
+            this._description = newDescription;
+        } else {
+            throw new Error('Description must be a string with a maximum of 100 characters');
         }
     }
 
@@ -29,25 +42,57 @@ class MenuItem {
         }
     }
 
-    get image(){
-        return this._image;
-    }
+    // get image(){
+    //     return this._image;
+    // }
 
-    set image(newImageLink){
-        if (typeof newImageLink !== "string"){
-            throw new Error('Image link must be a string');
-        }
-        const validExtensions = ['jpg', 'png', 'gif', 'webp'];
-        const extension = newImageLink.split(".").pop().toLowerCase();
-        if (validExtensions.includes(extension)){
-            this._image = newImageLink;
-        } else {
-            throw new Error('Image must be one of the following types: jpg, png, gif, webp.');
-        }
+    // set image(newImageLink){
+    //     if (typeof newImageLink !== "string"){
+    //         throw new Error('Image link must be a string');
+    //     }
+    //     const validExtensions = ['jpg', 'png', 'gif', 'webp'];
+    //     const extension = newImageLink.split(".").pop().toLowerCase();
+    //     if (validExtensions.includes(extension)){
+    //         this._image = newImageLink;
+    //     } else {
+    //         throw new Error('Image must be one of the following types: jpg, png, gif, webp.');
+    //     }
 
-    }
+    // }
 }
 
 export function buildMenu() {
-    let container = document.querySelector('#content');
+    let mainContainer = document.querySelector('#content');
+    let headline = document.createElement('h2');
+    let tagline = document.createElement('p');
+    headline.textContent = "Our Menu";
+    tagline.textContent = "We offer a wide selection of dishes that cater to both traditional and modern tastes";
+    let menuContainer = document.createElement('div');
+    let menuItems = [
+        new MenuItem('Sea trout tartare', 'Salmon, tuna, squid, onions, dill, capers, lemon juice, olive oil, mustard sauce, salt, pepper', 18.50),
+        new MenuItem('Tuna tartare', 'Tuna, onions, garlic, capers, dill, lemon juice, olive oil, arugula', 14.50),
+        new MenuItem('Salmon tartare', 'Salmon fillet, red onions, capers, olive oil, avocado, marinated seaweed', 16.50),
+        new MenuItem('Beef fillet tartare', 'Beef fillet, onions, capers, dill, curry, Dijon mustard, olive oil, salt, pepper', 11.50),
+    ]
+
+    for (let item of menuItems){
+        let itemContainer = document.createElement('div');
+        let itemTextContainer = document.createElement('div');
+        let itemName = document.createElement('p');
+        let itemDescription = document.createElement('p');
+        let itemPrice = document.createElement('p');
+        itemName.textContent = item.name;
+        itemDescription.textContent = item.description;
+        itemPrice.textContent = item.price;
+
+        itemTextContainer.appendChild(itemName);
+        itemTextContainer.appendChild(itemDescription);
+        itemContainer.appendChild(itemTextContainer);
+        itemContainer.appendChild(itemPrice);
+        menuContainer.appendChild(itemContainer);
+    }
+
+    mainContainer.appendChild(headline);
+    mainContainer.appendChild(tagline);
+    mainContainer.appendChild(menuContainer);
 }
