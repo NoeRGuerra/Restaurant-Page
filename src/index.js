@@ -1,6 +1,7 @@
 import { buildHome } from "./home"
 import { buildMenu } from "./menu";
 import { buildAboutPage } from "./about";
+import './style.css';
 
 buildHome();
 
