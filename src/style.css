@@ -5,23 +5,23 @@
 }
 
 body{
-    width: 100vw;
     height: 100vh;
     background-image: url('assets/bg.jpg'), linear-gradient(rgba(0,0,0,0.92), rgba(0,0,0,0.92));
     background-blend-mode: overlay;
     background-size: cover;
     color: white;
-    padding: 0 260px;
+    overflow-y: hidden;
 }
 
 nav, #content {
-    padding-top: 20px;
+    padding-top: 40px;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
+    padding: 0 250px;
 }
 
 nav>p {
@@ -46,4 +46,42 @@ nav>div>button {
 
 nav>div>button:hover {
     background: rgba(255,255,255,0.3);
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    padding: 0 50px 0 250px;
+}
+
+.hero>img {
+    width:100%;
+}
+
+.hero>div {
+    display: flex;
+    flex-direction: column;
+    padding-top: 110px;
+    gap: 40px;
+}
+
+.hero>div>p:first-child {
+    font-size: 50px;
+    font-weight: bold;
+    max-width: 15ch;
+}
+
+.hero>div>button {
+    align-self: flex-start;
+    background-color: rgb(200,17,61);
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.hero>div>p:nth-child(2){
+    font-family: sans-serif;
+    color:rgb(180, 180, 180);
 }

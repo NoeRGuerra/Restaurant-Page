@@ -1,11 +1,22 @@
+import Photo from './assets/salad.png';
+
 export function buildHome() {
     let container = document.querySelector('#content');
     let heroContainer = document.createElement('div');
-    let heroText = document.createElement('p');
+    heroContainer.classList.add('hero');
+    let heroTextContainer = document.createElement('div');
+    let heroHeadline = document.createElement('p');
+    let heroDescription = document.createElement('p');
     let heroButton = document.createElement('button');
-    heroContainer.appendChild(heroText);
-    heroContainer.appendChild(heroButton);
-    heroText.innerHTML = "Taste of Japan" + "<br/>" + "since 1985" + "<br/>" + "Welcome to a Timeless Culinary Journey; Unveiling the Legacy of Our Japanese Restaurant Established in 1985, Nestled Amidst the Vibrant Landscapes of Sri Lanka.";
-    heroButton.textContent = "Make Reservation";
+    let heroImage = new Image();
+    heroImage.src = Photo;
+    heroHeadline.textContent = "At our place - tasty and cozy";
+    heroDescription.textContent = "Delicious food, great company, and a creative atmosphere all in one place for an ideal time spent with family and friends at our restaurant!";
+    heroButton.textContent = "View our menu";
+    heroTextContainer.appendChild(heroHeadline);
+    heroTextContainer.appendChild(heroDescription);
+    heroTextContainer.appendChild(heroButton);
+    heroContainer.appendChild(heroTextContainer);
+    heroContainer.appendChild(heroImage);
     container.appendChild(heroContainer);
 }
