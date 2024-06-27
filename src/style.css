@@ -137,3 +137,15 @@ h2+p {
     align-self: flex-start;
     padding-top: 10px;
 }
+
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about>p {
+    padding: 50px 250px;
+    line-height: 2rem;
+    max-width: 120ch;
+}
