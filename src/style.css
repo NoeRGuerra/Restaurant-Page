@@ -85,3 +85,55 @@ nav>div>button:hover {
     font-family: sans-serif;
     color:rgb(180, 180, 180);
 }
+
+h2 {
+    font-size: 36px;
+    text-align: center;
+}
+
+h2+p {
+    color: rgb(180, 180, 180);
+    font-family: sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 50px 250px;
+    font-family: sans-serif;
+    color: rgb(180, 180, 180);
+    gap: 40px;
+}
+
+.menu-item {
+    display: flex;
+    gap: 10px;
+}
+
+.menu-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.menu-item>div{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.menu-item>div>p:first-child, .menu-item>p{
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: serif;
+    color: white;
+}
+
+.menu-item>p{
+    align-self: flex-start;
+    padding-top: 10px;
+}
